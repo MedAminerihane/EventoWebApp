@@ -1,0 +1,4 @@
+google_map_homepage:
+    path:     /map
+    defaults: { _controller: GoogleMapBundle:Default:index }
+

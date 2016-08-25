@@ -1,0 +1,24 @@
+{# empty Twig template #}
+<h2 class="dark centerText">
+					    Catalogue des Evénements</h2>
+        <table border="1" align="center" >
+            <tr>
+            <b><th style="color:red;width:300" >Prestataire</th></b>
+            <th style="color:red;width:300">Type</th>
+            <th style="color:red;width:300">Datedebut</th>
+            <th style="color:red;width:300">DateFin</th>
+            </tr>
+            
+        
+        {% for abonnement in abonnements %}
+            <tr>
+                <td>{{ abonnement.idprest.nom }}</td>
+                <td>{{ abonnement.type }}</td>
+                <td>{{ abonnement.dateDebut|date('d-m-y') }}</td>
+                <td>{{ abonnement.dateFin|date('d-m-y') }}</td>
+						                   
+					
+       
+        </tr>
+        </table>
+        {% endfor %}

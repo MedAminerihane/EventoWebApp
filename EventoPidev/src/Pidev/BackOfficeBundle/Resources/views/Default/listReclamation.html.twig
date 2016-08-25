@@ -1,0 +1,62 @@
+{% extends "PidevBackOfficeBundle::ReclamationAdmin.html.twig" %}
+{% set size = reclamations | length %}
+{% block content %}
+    {% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p>{{ message }}</p>
+    </div>
+{% endfor %}
+   {% block contour %}
+       <li class="dropdown">
+           <a data-hover="dropdown" href="#" class="dropdown-toggle">
+               <i class="fa fa-envelope fa-fw"></i>
+               <span class="badge badge-orange">{{ size }}</span></a> 
+       {% endblock %}
+        <div class="col-sm-9 col-md-10">
+            <ul class="nav nav-tabs">
+                
+            </ul>
+            <ul class="nav nav-pills nav-stacked" style="background: rgb(255, 255, 255);">
+                <li class="active"><a href="#"><span class="badge pull-right"></span><i class="fa fa-inbox fa-fw mrs"></i>Reclamations Reçus<span class="badge pull-right">{{size}}</span></li>
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+                        <div class="list-group mail-box">
+                            {% for reclamation in reclamations %}
+                               <a href="#" class="list-group-item"><input type="checkbox"/><span class="fa fa-star-o mrm mlm"></span>&nbsp; - &nbsp;<span style="font-size: 12px;" class="text-muted" name="contenu">{{reclamation.contenu}}</span>&nbsp; - &nbsp;<span class="time-badge">{{reclamation.date|date('y-m-d')}}</span>
+                                    <span class="pull-right mrl">
+                                        <span class="fa fa-trash-o" onclick='window.location.href="{{path("pidev_front_office_Reclamation_admin_supprimer",{"id":reclamation.id})}}"'>
+                                        </span>
+                                    </span>
+                                    <span class="pull-right mrl">
+                                        <span class="fa fa-pencil" onclick='window.location.href="{{path("pidev_front_office_Reclamation_admin_ajout",{'id':reclamation.id,'contenu':reclamation.contenu})}}"'>
+                                        </span>
+                                    </span>
+                               </a>
+                                     {% endfor %}
+                        </div>
+                    </div>
+                </div>
+        </div>
+        {% endblock %}
+            {#
+            {% for offre in offres %}
+               
+              <tr class="tbl-item"><!--<img/>-->
+                                                            <td class="img"><img src="{{asset('bundles/pidevfrontoffice/images/thumbs/arch-1.jpg')}}" alt="" title=""/></td>
+                                                            <!--<data></data>-->
+                                                            <td class="td-block"><p class="date">{{offre.dateDebut|date('y-m-d')}}</p>
+                                                                <p class="date">{{offre.dateFin|date('y-m-d')}}</p>
+                                                                
+                                                                <p class="title">{{offre.titre}}</p>
+            
+                                                                <p class="desc">{{offre.description}}</p>
+                                                                <p class="like">5 Likes</p> <a href="{{ path('pidev_front_office_Offre_prestataire_modif',{'id':offre.id})}}" target="_blank">Modifier</a>
+                                                                <a href="{{path("pidev_front_office_Offre_prestataire_supprimer",{'id':offre.id})}}">Supprimer</a></td>
+                                                               
+                                                        </tr>
+            {% endfor %}  
+                                 #}                                                               

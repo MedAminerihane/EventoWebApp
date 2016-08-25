@@ -1,0 +1,15 @@
+google_map:
+    resource: "@GoogleMapBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pidev_back_office:
+    resource: "@PidevBackOfficeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pidev_front_office:
+    resource: "@PidevFrontOfficeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+

@@ -1,0 +1,24 @@
+{# empty Twig template #}
+{% extends "PidevFrontOfficeBundle::AbonnementPrestataire.html.twig" %} 
+{% block Abonnement %}
+<h1>Ajouter abonnement</h1>
+    <form action="" method="post" {{form_enctype(form)}}>
+        <table>
+            <tr><th>Type</th>
+                <td>         {{form_widget(form.Type)}}
+</td>
+            </tr>
+           <tr><th>Date Début</th>
+                <td>         {{form_widget(form.dateDebut)}}
+</td>
+            </tr>
+            <tr><th>Date fin</th>
+                <td>         {{form_widget(form.dateFin)}}
+</td>
+            </tr>
+        </table>
+
+{{form_widget(form.Valider)}}
+        
+    </form>
+{% endblock %}

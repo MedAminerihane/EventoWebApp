@@ -1,0 +1,135 @@
+{% extends "PidevFrontOfficeBundle::ProfileClient.html.twig" %}
+
+{% block profil_content %}
+<table class="table table-striped table-hover">
+                                    <tbody>
+                                    <tr>
+                                        <td>User Name</td>
+                                        <td>{{app.user.username}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{{app.user.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Addresse</td>
+                                        <td>{{app.user.adresse}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Statut</td>
+                                        <td><span class="label label-success">Actif</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Téléphone</td>
+                                        <td>{{app.user.tel}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Membre depuis</td>
+                                        <td> {{app.user.lastLogin|date('D/M/Y')}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+    {% endblock profil_content %}
+    {% block account_content %}
+        
+        
+        <form  method="POST" class="form-horizontal"><h3>Paramètre Du Compte</h3>
+{% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p>{{ message }}</p>
+    </div>
+{% endfor %}
+                                            <div class="form-group"><label class="col-sm-3 control-label">Email</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-9"><input type="email" value="{{app.user.email}}" name ="email" placeholder="email@yourcompany.com" class="form-control"/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-3 control-label">Username</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-9"><input type="text" name ="username" value="{{app.user.username}}" placeholder="username" class="form-control"/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-3 control-label">Mot de passe</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-4"><input type="password" name ="password" placeholder="mot de passe" class="form-control"/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-3 control-label">Confirmation du mot de passe</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-4"><input type="password"  name ="passwordc" placeholder="mot de passe" class="form-control"/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            <h3>Paramètre de profil</h3>
+
+                                            <div class="form-group"><label class="col-sm-3 control-label">Nom</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-9"><input type="text" name ="firstname" value="{{app.user.nom}}" placeholder="nom" class="form-control"/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-3 control-label">Prénom</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-9"><input type="text" name ="lastname" placeholder="prénom" value="{{app.user.prenom}}" class="form-control"/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          <div class="form-group"><label class="col-sm-3 control-label">Téléphone</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-9"><input type="number" name ="phone" value="{{app.user.tel}}" placeholder="Téléphone" class="form-control"/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-3 control-label">Age</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-4"><input  type="number"  name="age" value="{{app.user.age}}" palceholder="Age" class="form-control"/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-3 control-label">Adresse</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-9"><input type="text" name ="adresse" value="{{app.user.adresse}}" placeholder="Adresse" class="form-control"/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group"><label class="col-sm-3 control-label">A propos</label>
+
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-9"><textarea rows="3" class="form-control"></textarea></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         
+                                              <hr/>
+                                            <button type="submit" class="btn btn-green btn-block">Sauvegarder la modification</button>
+                                        </form>
+        
+        {% endblock account_content %}

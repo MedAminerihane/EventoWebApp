@@ -1,0 +1,30 @@
+Invitation:
+    type: entity
+    table: invitation
+    indexes:
+        fk_particip:
+            columns:
+                - participant
+    id:
+        evenement:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+        participant:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+    fields:
+        dateInvitation:
+            type: datetime
+            nullable: false
+            default: CURRENT_TIMESTAMP
+            column: date_invitation
+        etat:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+    lifecycleCallbacks: {  }

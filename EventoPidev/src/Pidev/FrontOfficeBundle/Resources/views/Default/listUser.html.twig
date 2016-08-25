@@ -1,0 +1,44 @@
+
+{% extends "PidevFrontOfficeBundle::InvitationsClient.html.twig" %} 
+{% block title %} liste des evenements {% endblock %}
+
+{% block titre1 %}
+                             {% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p>{{ message }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
+
+{% block titreEvent %}
+    
+         
+   
+    {% for utilisateur in utilisateurs %}
+                    
+  
+ <tr class="tbl-item"><!--<img/>-->
+     <td class="img" style="width:100px; height:100px;">
+    <img src="http://www.filecluster.com/howto/wp-content/uploads/2014/07/User-Default.jpg" alt="" title=""  style="width:100px; height:100px; alignment-adjust: central" />  </td>                                          
+    <td class="td-block">
+        <p class="title"> {{ utilisateur.prenom }} {{ utilisateur.nom }} </p>
+              <p class="desc"> {{ utilisateur.email }}</p>
+           
+         <ul class="social-icons list-unstyled list-inline mbl mtl" style="text-align:right" >
+            
+             <li><a href="{{path('pidev_front_office_Invitation_client',{'id':utilisateur.id,'ide':ide})}}" data-hover="tooltip" data-original-title="Inviter" class="skype"><i class="fa fa-plus"></i></a></li>
+             
+
+         </ul>
+    </td>
+ </tr>
+
+
+                                            {% endfor %}
+   
+                                            {% endblock %}
+

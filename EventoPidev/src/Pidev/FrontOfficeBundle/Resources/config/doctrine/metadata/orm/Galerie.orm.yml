@@ -1,0 +1,61 @@
+Galerie:
+    type: entity
+    table: galerie
+    indexes:
+        id_offre:
+            columns:
+                - id_offre
+        id_evennement:
+            columns:
+                - id_evennement
+        id_offre_3:
+            columns:
+                - id_offre
+        id_offre_4:
+            columns:
+                - id_offre
+    uniqueConstraints:
+        url:
+            columns:
+                - url
+        id_offre_2:
+            columns:
+                - id_offre
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        url:
+            type: string
+            nullable: false
+            length: 500
+            fixed: false
+        type:
+            type: integer
+            nullable: false
+            unsigned: false
+    manyToOne:
+        idOffre:
+            targetEntity: Offre
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_offre:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idEvennement:
+            targetEntity: Evenement
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_evennement:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

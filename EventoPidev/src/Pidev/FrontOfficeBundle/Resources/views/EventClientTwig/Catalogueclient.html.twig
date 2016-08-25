@@ -1,0 +1,58 @@
+{# empty Twig template #}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/styles/styletest.css" charset="UTF-8"/>
+
+    </head>
+    <body>
+        <h2 class="dark centerText">
+					    Catalogue des Evénements</h2>
+        <table border="1">
+            <tr>
+            <b><th style="color:red">Titre</th></b>
+            <th style="color:red">Image</th>
+            <th style="color:red">Description</th>
+           <th style="color:red">Lieu</th>
+            <th style="color:red">Datedebut</th>
+            <th style="color:red">DateFin</th>
+            </tr>
+            
+        
+        {% for event in events %}
+            <tr>
+                <td>{{ event.titre }}</td>
+                <td> <img style="width:250px;height:250px" groupId="([110000000])" class="portalKachel" src="C:\wamp\www{{ event.url }}" alt="Charnières" title="Charnières" />    </td>        
+                <td style="word-wrap: break-word">{{ event.description }}</td>
+                <td>{{ event.lieu }}</td>
+                <td>{{ event.dateDebut|date('d-m-y') }}</td>
+                <td>{{ event.dateFin|date('d-m-y') }}</td>
+						                   
+					
+       
+        </tr>
+ {% endfor %}
+        </table>
+    </body>
+    
+    
+</html>
+{#
+{% block catalogue %}
+      <table >
+          <tr>
+                <th>titre</th>
+                <th>url</th>
+            </tr>
+    {% for event in events %}
+      
+            
+      
+            <tr>
+                <td>{{ event.titre }}    </td>
+                <td> {{ event.url }}</td>
+            </tr>
+        {% endfor %}
+     </table >
+    {% endblock %}
+    
+    #}

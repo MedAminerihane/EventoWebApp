@@ -1,0 +1,154 @@
+<?php
+
+namespace Pidev\FrontOfficeBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Utilisateur
+ *
+ * @ORM\Table(name="utilisateur", uniqueConstraints={@ORM\UniqueConstraint(name="mail", columns={"mail"}), @ORM\UniqueConstraint(name="cin", columns={"cin"}), @ORM\UniqueConstraint(name="matricule_fiscal", columns={"matricule_fiscal"})}, indexes={@ORM\Index(name="id", columns={"id"}), @ORM\Index(name="id_2", columns={"id"})})
+ * @ORM\Entity
+ */
+class Utilisateur
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=50, nullable=false)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=50, nullable=false)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=50, nullable=false)
+     */
+    private $mail;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tel", type="integer", nullable=false)
+     */
+    private $tel;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_inscrit", type="datetime", nullable=true)
+     */
+    private $dateInscrit = 'CURRENT_TIMESTAMP';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=50, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=50, nullable=true)
+     */
+    private $prenom;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="age", type="integer", nullable=true)
+     */
+    private $age;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cin", type="integer", nullable=true)
+     */
+    private $cin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matricule_fiscal", type="string", length=50, nullable=true)
+     */
+    private $matriculeFiscal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nature", type="integer", nullable=false)
+     */
+    private $nature;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=20, nullable=false)
+     */
+    private $etat = 'active';
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Offre", mappedBy="idClient")
+     */
+    private $idOffre;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Evenement", inversedBy="idClient")
+     * @ORM\JoinTable(name="evaluationevenement",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_client", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_evenement", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $idEvenement;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Utilisateur", mappedBy="idPrestataire")
+     */
+    private $idClient;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idOffre = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idEvenement = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idClient = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

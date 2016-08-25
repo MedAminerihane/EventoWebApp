@@ -1,0 +1,72 @@
+Offre:
+    type: entity
+    table: offre
+    indexes:
+        id_prestataire:
+            columns:
+                - id_prestataire
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        titre:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        prix:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            fixed: false
+        dateDebut:
+            type: date
+            nullable: false
+            column: date_debut
+        dateFin:
+            type: date
+            nullable: false
+            column: date_fin
+        categorie:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+    manyToOne:
+        idPrestataire:
+            targetEntity: Utilisateur
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_prestataire:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        idClient:
+            targetEntity: Utilisateur
+            cascade: {  }
+            mappedBy: null
+            inversedBy: idOffre
+            joinTable:
+                name: demandeoffre
+                joinColumns:
+                    -
+                        name: id_offre
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: id_client
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

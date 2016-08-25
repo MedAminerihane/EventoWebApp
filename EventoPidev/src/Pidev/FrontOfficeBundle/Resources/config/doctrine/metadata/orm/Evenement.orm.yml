@@ -1,0 +1,77 @@
+Evenement:
+    type: entity
+    table: evenement
+    indexes:
+        createur:
+            columns:
+                - createur
+        prix:
+            columns:
+                - prix
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        titre:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        lieu:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        dateDebut:
+            type: date
+            nullable: false
+            column: date_debut
+        dateFin:
+            type: date
+            nullable: false
+            column: date_fin
+        confidentialite:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            fixed: false
+        prix:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        type:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            column: Type
+    manyToOne:
+        createur:
+            targetEntity: Utilisateur
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                createur:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        idClient:
+            targetEntity: Utilisateur
+            cascade: {  }
+            mappedBy: idEvenement
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

@@ -1,0 +1,67 @@
+
+pidev_front_office_indexA:
+    path:     /indexA
+    defaults: { _controller: PidevBackOfficeBundle:Admin:index }
+    
+pidev_front_office_profilA:
+    path:     /profilA
+    defaults: { _controller: PidevBackOfficeBundle:Admin:Profil } 
+    
+pidev_front_office_listC:
+    path:     /listC
+    defaults: { _controller: PidevBackOfficeBundle:Admin:ListC }  
+pidev_front_office_detailC:
+    path:     /listC#detail/{id}
+    defaults: { _controller: PidevBackOfficeBundle:Admin:DetailC }
+
+pidev_front_office_blockerC:
+    path:     /listC/{id}
+    defaults: { _controller: PidevBackOfficeBundle:Admin:BlockC }
+pidev_front_office_listP:
+    path:     /listP
+    defaults: { _controller: PidevBackOfficeBundle:Admin:ListP }  
+pidev_front_office_detailP:
+    path:     /listP#detail/{id}
+    defaults: { _controller: PidevBackOfficeBundle:Admin:DetailP }
+
+pidev_front_office_blockerP:
+    path:     /listP/{id}
+    defaults: { _controller: PidevBackOfficeBundle:Admin:BlockP }
+
+lister_evenement_b:
+    path:     /listerEvent
+    defaults: { _controller: PidevBackOfficeBundle:Evenement:listEvent }
+supprimer_evenement_b:
+    path:     /supprimerEvent/{id}
+    defaults: { _controller: PidevBackOfficeBundle:Evenement:deleteEvent }
+details_evenement_b:
+    path:     /detailsEvent/{id}
+    defaults: { _controller: PidevBackOfficeBundle:Evenement:detailEvent }
+ajouter_evenement_b:
+    path:     /ajouterEvent
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:ajoutEvent }
+
+pidev_front_office_Reclamation_admin_list:
+    path:     /ListReclamationAdmin
+    defaults: { _controller: PidevBackOfficeBundle:ReclamationAdmin:listReclamation }
+    
+pidev_front_office_Reclamation_admin_supprimer:
+    path:     /SupprimerReclamationAdmin/{id}
+    defaults: { _controller: PidevBackOfficeBundle:ReclamationAdmin:supprimerReclamation }
+    
+pidev_front_office_Reclamation_admin_ajout:
+    path:     /AjoutReclamationAdmin
+    defaults: { _controller: PidevBackOfficeBundle:ReclamationAdmin:ajoutReclamation }
+
+liste_abonnements:
+    path:     /listeabonnement
+    defaults: { _controller: PidevBackOfficeBundle:Abonnement:abonnlist }
+supprimer_abonnements:
+    path:     /suppabonnement/{id}
+    defaults: { _controller: PidevBackOfficeBundle:Abonnement:suppabonn }
+genererpdfabonnement:
+    path:     /genererpdfabonnement
+    defaults: { _controller: PidevBackOfficeBundle:Abonnement:exportpdf }
+statistiqueA:
+    path:     /listchA
+    defaults: { _controller: PidevBackOfficeBundle:Admin:chart  }

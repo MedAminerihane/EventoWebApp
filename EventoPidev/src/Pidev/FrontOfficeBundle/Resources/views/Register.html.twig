@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href=" http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+    <link type="text/css" rel="stylesheet" href="{{asset('styles/font-awesome.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('styles/bootstrap.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('styles/animate.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('styles/all.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('styles/main.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('styles/style-responsive.css')}}">
+</head>
+<body style="background: url('{{asset('images/bg/bg.jpg')}}') no-repeat;
+	background-size: 100%; "  >
+    <div class="page-form">
+        <div class="panel panel-blue">
+          <div class="col-md-12 text-center">
+                        <h1 style="margin-top: -90px; font-size: 48px;">
+                            EVENTO</h1>
+                        <br>
+                    </div>
+                                            <div class="panel-heading">
+                                                Registration</div>
+                                            <div class="panel-body pan">
+{% block fos_user_content %}
+
+
+
+                                                <form action="#">
+                                                    
+                                                <div class="form-body pal">
+                                                    <div class="form-group">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-user"></i>
+                                                            <input id="inputName" type="text" placeholder="Username" class="form-control" /></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-envelope"></i>
+                                                            <input id="inputEmail" type="text" placeholder="Email address" class="form-control" /></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-lock"></i>
+                                                            <input id="inputPassword" type="password" placeholder="Password" class="form-control" /></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-icon right">
+                                                            <i class="fa fa-lock"></i>
+                                                            <input id="inputConfirmPassword" type="password" placeholder="Confirm Password" class="form-control" /></div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <input id="inputFirstName" type="text" placeholder="First Name" class="form-control" /></div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <input id="inputLastName" type="text" placeholder="Last Name" class="form-control" /></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select class="form-control">
+                                                            <option>Gender</option>
+                                                            <option value="0">Male</option>
+                                                            <option value="1">Female</option>
+                                                            <option value="2">Other</option>
+                                                        </select></div>
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input tabindex="5" type="checkbox" />&nbsp; I want to receive news and special
+                                                                offers</label></div>
+                                                    </div>
+                                                    <div class="form-group mbn">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input tabindex="5" type="checkbox" />&nbsp; I agree with the Terms and Conditions</label></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-actions text-right pal">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Submit</button>
+                                                </div>
+                                                </form>
+                                             {% endblock %}
+                                            </div>
+        </div>
+      
+    </div>
+ 
+   
+
+
+</body>
+</html>

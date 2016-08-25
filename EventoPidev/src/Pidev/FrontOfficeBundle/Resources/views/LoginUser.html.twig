@@ -1,0 +1,71 @@
+
+<!--
+
+-->
+<!DOCTYPE html>
+<html>	
+<head>
+<title>User Login </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="keywords" content="User Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
+<link href="{{asset('css/style.css')}}" rel='stylesheet' type='text/css' />
+<!--web-fonts-->
+<link href={{asset('http://fonts.googleapis.com/css?family=Montserrat:400,700')}} rel='stylesheet' type='text/css'>
+<!--/web-fonts-->
+</head>
+<div style="margin-top: 40px; margin-left: 20px;">
+<div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+        </div>
+
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+</div>
+<body style="background:  url('{{asset('images/bg/bg.jpg')}}')no-repeat;
+	background-size: 100%; "   >
+   
+    
+<!--User-Login-->
+<h1>User Login</h1>
+<div class="avtar">
+	<img src="{{asset('images/bg/avtar.png')}}" />
+</div>
+	                     
+
+<div class="login-form">
+		<p>Pas de compte ?<a href="{{asset('app_dev.php/register')}}">S'inscrire ici !</a></p>
+			
+				<div class="form-text">
+                                    	                         {% block fos_user_content %}
+
+					<input type="text" class="text" value="USERNAME" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'USERNAME';}" >
+					<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+				</div>
+					<input type="submit" value="GO" >
+                                          {% endblock %}
+		
+	</div>
+                                     
+                  
+
+<!--/User-Login-->
+<!--start-copyright-->
+<div class="copy-right">
+	<p>EVENTO COPYRIGHT</p> 
+</div>
+<!--//end-copyright-->	
+</body>
+</html>

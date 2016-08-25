@@ -1,0 +1,34 @@
+{# empty Twig template #}
+{% extends "PidevBackOfficeBundle::AbonnementPrestataire.html.twig" %} 
+{% block Abonnement %}
+    <table class="table table-hover">
+        <thead>
+                                    <tr>
+                                        
+                                        <th>Prestataire</th>
+                                        <th>Type</th>
+                                        <th>Date debut</th>
+                                        <th>Date fin</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+    {% for x in abonnements %}
+         
+                                    
+                                    <tbody>
+                                    <tr>
+                                        <td>{{x.idPrest.username }}</td>
+                                        <td>{{x.type }}</td>
+                                        <td>{{x.dateDebut|date('d-m-y') }}</td>
+                                        <td>{{x.dateFin|date('d-m-y') }}</td>
+                                        <td><span class="label label-sm label-success"><a href="{{path('supprimer_abonnements',{'id':x.id})}}"><font color="black ">Supprimer</font></span></a> </td>
+                                    </tr>
+                                   
+                                    </tbody>
+                                
+        
+        {% endfor %}
+        </table>
+        <br>
+        <a href="{{ path('genererpdfabonnement') }}" class="btn btn-red navbar-btn">Exporter en PDF</a>
+    {% endblock %}

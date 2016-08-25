@@ -1,0 +1,49 @@
+<?php
+
+namespace Pidev\FrontOfficeBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Reclamation
+ *
+ * @ORM\Table(name="reclamation", indexes={@ORM\Index(name="id_expediteur", columns={"id_expediteur"}), @ORM\Index(name="id_expediteur_2", columns={"id_expediteur"})})
+ * @ORM\Entity
+ */
+class Reclamation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=false)
+     */
+    private $date = 'CURRENT_TIMESTAMP';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Contenu", type="text", length=65535, nullable=false)
+     */
+    private $contenu;
+
+    /**
+     * @var \Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_expediteur", referencedColumnName="id")
+     * })
+     */
+    private $idExpediteur;
+
+
+}

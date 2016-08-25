@@ -1,0 +1,33 @@
+Administrateur:
+    type: entity
+    table: administrateur
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        prenom:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        mail:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+    lifecycleCallbacks: {  }

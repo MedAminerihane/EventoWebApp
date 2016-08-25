@@ -1,0 +1,47 @@
+{% extends "PidevFrontOfficeBundle::InvitationsClient.html.twig" %} 
+{% block title %} liste des Invitations {% endblock %}
+    {% set size = invitations | length %}
+
+{% block titre1 %}
+                             {% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p>{{ message }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
+
+{% block titreEvent %}
+    
+    
+    
+   
+    {% for invitation in invitations %}
+                    
+  
+ <tr class="tbl-item"><!--<img/>-->
+     <td class="img" style="width:100px; height:100px;">
+    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTNT7pCbL7Ii0lhcEZ_lBOmKPOm0maH8lj7k28jdFbsgm-Ws_FWdw" alt="" title=""  style="width:100px; height:100px; alignment-adjust: central"  />  </td>                                          
+    <td class="td-block">
+        <p class="title">{{ invitation.titre }}</p>
+              <p class="desc"> {{ invitation.dateInvitation|date('y-m-d') }}</p>
+              <br>
+              <p class="desc"> {{ invitation.etat }}</p>
+         <ul class="social-icons list-unstyled list-inline mbl mtl" style="text-align:right" >
+            
+             <li><a  class="btn btn-green pull-right" href="{{path('pidev_front_office_Invitation_update',{'evenement':invitation.evenement})}}">Accepter</a>&nbsp;&nbsp;
+                 <a  class="btn btn-red pull-right" href="{{path('pidev_front_office_Invitation_client_supprimer',{'evenement':invitation.evenement})}}">Refuser</a></li>
+             
+         
+         </ul>
+    </td>
+ </tr>
+
+
+                                            {% endfor %}
+   
+                                            {% endblock %}
+

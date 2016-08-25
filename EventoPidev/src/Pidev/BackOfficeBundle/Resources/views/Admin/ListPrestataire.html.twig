@@ -1,0 +1,138 @@
+{# empty Twig template #}
+{% extends "PidevBackOfficeBundle::ListPrestataireAdmin.html.twig" %}
+ 
+
+{% block listclient %}
+    
+<div class="panel panel-pink">
+                          
+    <div class="panel-heading">Prestataire</div>
+                            <div class="panel-body">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Username</th>
+                                        <th>Matricule</th>
+                                        <th>Email</th>
+                                        <th>Statut</th>
+                                        <th>Détail</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for user in clients  %}
+                                 
+                                         <tr>
+                                        <td>{{user.id}}</td>
+                                        <td>{{user.username}}</td>
+                                        <td>{{user.matriculeFiscal}}</td>
+                                        <td> {{user.email}}</td>
+                                      <td>  {%  if  user.locked %}
+                                      <span class="label label-sm label-danger">Bloqué</span>
+                                          
+                                            {% else %}
+                                              <span class="label label-sm label-success">Actif</span>
+                                              {% endif %}
+                                                  </td>
+                                               <td><a href="{{path ("pidev_front_office_detailP",{'id': user.id})}}">Détail</a></td>
+                                            
+                                            
+                                            
+                                            </tr>
+                                      
+                                    {% endfor %}
+                                    </a>
+                                    </tbody>
+                                </table>
+                            </div>
+                                  
+                                    </div>
+                                    
+                                    
+                                    
+                                  
+                                   
+    {% endblock listclient %}
+        
+   {% block detailclient %}
+         {% if cl!=NULL %}
+      
+    
+   
+     <div class="col-lg-12">
+                              
+                                    
+                              <div class="row">
+                    <div class="col-md-12"><h2>Profil: {{cl.username}}</h2>
+
+                        <div class="row mtl">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <div class="text-center mbl"><img src="http://www.afcb.co.uk/images/common/bg_player_profile_default_big.png" alt="" class="img-circle"/></div>
+                                    
+                                </div>
+                                
+                                
+                   
+                                    
+                                    
+                                <table class="table table-striped table-hover">
+                                    <tbody>
+                                    <tr>
+                                        <td>User Name</td>
+                                        <td>{{cl.username}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{{cl.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Addresse</td>
+                                        <td>{{cl.adresse}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Statut</td>
+                                        <td>{%  if  cl.locked %}
+                                      <span class="label label-sm label-danger">Bloqué</span>
+                                          
+                                            {% else %}
+                                              <span class="label label-sm label-success">Approved</span>
+                                              {% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Téléphone</td>
+                                        <td>{{cl.tel}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dernière connexion</td>
+                                        <td>{{cl.lastLogin|date('D/M/Y')}}</td>
+                                    </tr>
+                                    
+                                    
+                                    </tbody>
+                                    
+                                   
+                                </table>
+                                    <br>
+                                    
+                                    {%  if  cl.locked %}
+                                         <a href="{{path ("pidev_front_office_blockerP",{'id': cl.id})}}"  class="btn btn-success">Débloquer</a>
+                                       
+                                         <button type="button" disabled="disabled" class="btn btn-danger">Bloquer</button>
+                                    
+                                    {% else %}
+                                          <button type="button" class="btn btn-success" disabled="disabled">Débloquer</button>
+                                        <a href="{{path ("pidev_front_office_blockerP",{'id': cl.id})}}"  class="btn btn-danger">Bloquer</a>
+						{% endif %}		
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+                              
+                                
+       
+          
+       
+        {% endif %}
+        {% endblock detailclient %}

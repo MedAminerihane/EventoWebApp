@@ -1,0 +1,126 @@
+pidev_front_office_homepage:
+    path:     /indexC
+    defaults: { _controller: PidevFrontOfficeBundle:Client:index }
+pidev_front_office_indexP:
+    path:     /indexP
+    defaults: { _controller: PidevFrontOfficeBundle:Prestataire:index }
+pidev_front_office_indexR:
+    path:     /indexR
+    defaults: { _controller: PidevFrontOfficeBundle:Prestataire:rd }
+pidev_front_office_profilC:
+    path:     /profilC
+    defaults: { _controller: PidevFrontOfficeBundle:Client:profil }
+DesactiverCompteC:
+    path:     /desactivercompte
+    defaults: { _controller: PidevFrontOfficeBundle:Client:DesactiveC }
+pidev_front_office_profilP:
+    path:     /profilP
+    defaults: { _controller: PidevFrontOfficeBundle:Prestataire:profil }
+lister_evenement:
+    path:     /listerEvente
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:listEvent }
+lister_mes_evenement:
+    path:     /listerMesEvent
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:listMyEvent }    
+supprimer_evenement:
+    path:     /supprimerEvente/{id}
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:deleteEvent }
+details_evenement:
+    path:     /detailsEvente/{id}
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:detailEvent }
+ajouter_evenement:
+    path:     /ajouterEvent
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:ajoutEvent }
+modifier_evenement:
+    path:     /modifierEvent/{id}
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:update }
+chercher_evenement:
+    path:     /chercherEvent/{type}
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:chercherEvent }
+participer_evenement:
+    path:     /participerEvent
+    defaults: { _controller: PidevFrontOfficeBundle:Invitation:participer }
+pidev_front_office_Reclamation_client_ajout:
+    path:     /EnvoyerReclamationClient
+    defaults: { _controller: PidevFrontOfficeBundle:ReclamationClient:envoyerReclamation }
+    
+pidev_front_office_Reclamation_client_supprimer:
+    path:     /SupprimerReclamationClient/{id}
+    defaults: { _controller: PidevFrontOfficeBundle:ReclamationClient:supprimerReclamation }
+
+pidev_front_office_Reclamation_client_supprimer_list:
+    path:     /DQL/deleteId/{id}
+    defaults: { _controller: PidevFrontOfficeBundle:ReclamationClient:deleteById }
+
+pidev_front_office_Invitation_client_list:
+    path:     /ListClient /{ide}
+    defaults: { _controller: PidevFrontOfficeBundle:Invitation:listClient }
+    
+pidev_front_office_Invitation_client:
+    path:     /invitation
+    defaults: { _controller: PidevFrontOfficeBundle:Invitation:invitationClient }
+    
+pidev_front_office_Invitation_list:
+    path:     /ListInvitation
+    defaults: { _controller: PidevFrontOfficeBundle:Invitation:invitationList }
+    
+pidev_front_office_Invitation_update:
+    path:     /UpdateInvitation
+    defaults: { _controller: PidevFrontOfficeBundle:Invitation:invitationUpdate }
+
+pidev_front_office_Invitation_client_supprimer:
+    path:     /SupprimerInvitationClient
+    defaults: { _controller: PidevFrontOfficeBundle:Invitation:supprimerInvitation }
+
+
+cree_offre_client:
+    path:     /ajouterOffreClient
+    defaults: { _controller: PidevFrontOfficeBundle:Offre:ajouterOffre }
+
+list_offre_client:
+    path:     /listOffreClient
+    defaults: { _controller: PidevFrontOfficeBundle:Offre:listOffre }
+
+afficher_offre_client:
+    path:     /afficheOffreClient/{id}
+    defaults: { _controller: PidevFrontOfficeBundle:Offre:afficheOffre }
+
+list_offre_prestataire:
+    path:     /afficheOffrePrestataire
+    defaults: { _controller: PidevFrontOfficeBundle:Offre:afficheOffrePrestataire }
+
+supprimer_offre_prestataire:
+    path:     /afficheOffrePrestataire/{id}
+    defaults: { _controller: PidevFrontOfficeBundle:Offre:supprimer }
+
+modifier_offre_prestataire:
+    path:     /modifierOffrePrestataire/{id}
+    defaults: { _controller: PidevFrontOfficeBundle:Offre:modifier }
+    
+demande_offre:
+    path:     /demandeOffre/{id_offre}
+    defaults: { _controller: PidevFrontOfficeBundle:Offre:demande }
+    
+list_demande:
+    path:     /listDemande
+    defaults: { _controller: PidevFrontOfficeBundle:Offre:accepter  }
+
+accepter_offre:
+    path:     /accepterDemande/{idClient}/{idOffre}
+    defaults: { _controller: PidevFrontOfficeBundle:Offre:accepterDemandes }
+satistique:
+    path:     /listch
+    defaults: { _controller: PidevFrontOfficeBundle:Client:chart  }
+satistiqueP:
+    path:     /listchP
+    defaults: { _controller: PidevFrontOfficeBundle:Prestataire:chart  }
+
+catalogue_evenement:
+    path:     /catalogueEvent/{typea}
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:pdfgenerate }
+ajouter_abonnement:
+    path:     /ajouterabonnement
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:ajoutabonnement }
+listcatalogue:
+    path:     /listcatalogue
+    defaults: { _controller: PidevFrontOfficeBundle:Evenement:listercat }

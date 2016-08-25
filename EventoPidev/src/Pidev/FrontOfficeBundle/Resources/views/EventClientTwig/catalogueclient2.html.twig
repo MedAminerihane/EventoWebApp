@@ -1,0 +1,147 @@
+{# empty Twig template #}
+{% extends "PidevFrontOfficeBundle::CataloguesClient.html.twig" %}
+
+{% block catalogue %}
+
+                                                
+                                               {# <a href="{{path('catalogue_evenement',{'typea': "sport" })}}" class="btn btn-green navbar-btn">Sport</a>
+                                             
+
+
+ 
+                                                
+                                                    <a href="{{path('catalogue_evenement',{'typea': "Musique" })}}" class="btn btn-green navbar-btn">Musique</a>
+                                               
+                                                    
+                                                    
+                                                    <a href="{{path('catalogue_evenement',{'typea': "Art" })}}" class="btn btn-green navbar-btn">Art</a>
+                                                
+                                                    
+                                                
+                                                    <a href="{{path('catalogue_evenement',{'typea': "Food" })}}" class="btn btn-green navbar-btn">Food</a>
+                                                
+                                                    
+                                                    <a href="{{path('catalogue_evenement',{'typea': "meeting" })}}" class="btn btn-green navbar-btn">meeting</a>
+                                              
+                                                     
+                                                    <a href="{{path('catalogue_evenement',{'typea': "others" })}}" class="btn btn-green navbar-btn">others</a>
+                                                 #}
+                                               
+                                     <div class="g-cell g-cell-1-1 g-cell-md-2-2 g-cell-lg-2-3 l-padded-v ">
+        <a class="category-card js-category-link js-xd-track-link category-music"
+            href="{{path('catalogue_evenement',{'typea': "Musique" })}}"
+            data-category="Music"
+            data-event-action="ViewCategory"
+            data-event-category="home"
+            data-event-label="Music"
+        >
+            <div class="category-card__wrapper">
+                <div class="category-card__tint">
+                    <div class="category-card__image"></div>
+                </div>
+                <div class="category-card__text-wrapper">
+                    <h4 class="category-card__label l-padded-h-2 text-large text-body--significant text-heading--emphasized">
+                        Music
+                    </h4>
+                    <p class="category-card__desc l-block-2 l-padded-h-2 text-body text-heading--emphasized">
+                        Concerts dans un cadre privé, grands festivals de musique et soirées .
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div> 
+            
+     <div class="g-cell g-cell-1-1 g-cell-md-1-2 g-cell-lg-1-3 l-padded-v ">
+        <a class="category-card js-category-link js-xd-track-link category-food"
+            href="{{path('catalogue_evenement',{'typea': "Food" })}}"
+            data-category="Food &amp;amp; Drink"
+            data-event-action="ViewCategory"
+            data-event-category="home"
+            data-event-label="Food &amp;amp; Drink"
+        >
+            <div class="category-card__wrapper">
+                <div class="category-card__tint">
+                    <div class="category-card__image"></div>
+                </div>
+                <div class="category-card__text-wrapper">
+                    <h4 class="category-card__label l-padded-h-2 text-large text-body--significant text-heading--emphasized">
+                        Gastronomie
+                    </h4>
+                    <p class="category-card__desc l-block-2 l-padded-h-2 text-body text-heading--emphasized">
+                        Dîner, dégustations,Food
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+        <div class="g-cell g-cell-1-1 g-cell-md-1-2 g-cell-lg-1-3 l-padded-v ">
+        <a class="category-card js-category-link js-xd-track-link category-classes"
+            href="{{path('catalogue_evenement',{'typea': "meeting" })}}"
+            data-category="Class"
+            data-event-action="ViewCategory"
+            data-event-category="home"
+            data-event-label="Class"
+        >
+            <div class="category-card__wrapper">
+                <div class="category-card__tint">
+                    <div class="category-card__image"></div>
+                </div>
+                <div class="category-card__text-wrapper">
+                    <h4 class="category-card__label l-padded-h-2 text-large text-body--significant text-heading--emphasized">
+                        Cours et ateliers
+                    </h4>
+                    <p class="category-card__desc l-block-2 l-padded-h-2 text-body text-heading--emphasized">
+                        Séminaires instructifs, ateliers techniques et cours de gym
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+       
+     <div class="g-cell g-cell-1-1 g-cell-md-1-2 g-cell-lg-1-3 l-padded-v ">
+        <a class="category-card js-category-link js-xd-track-link category-arts"
+            href="{{path('catalogue_evenement',{'typea': "Art" })}}"
+            data-category="Arts"
+            data-event-action="ViewCategory"
+            data-event-category="home"
+            data-event-label="Arts"
+        >
+            <div class="category-card__wrapper">
+                <div class="category-card__tint">
+                    <div class="category-card__image"></div>
+                </div>
+                <div class="category-card__text-wrapper">
+                    <h4 class="category-card__label l-padded-h-2 text-large text-body--significant text-heading--emphasized">
+                        Arts
+                    </h4>
+                    <p class="category-card__desc l-block-2 l-padded-h-2 text-body text-heading--emphasized">
+                        Pièces de théâtre, soirées comédies, expositions d&#39;art et festivals de cinéma
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+<div class="g-cell g-cell-1-1 g-cell-md-1-2 g-cell-lg-1-3 l-padded-v hide-medium hide-small">
+        <a class="category-card js-category-link js-xd-track-link category-sports"
+            href="{{path('catalogue_evenement',{'typea': "sport" })}}"
+            data-category="Sports"
+            data-event-action="ViewCategory"
+            data-event-category="home"
+            data-event-label="Sports"
+        >
+            <div class="category-card__wrapper">
+                <div class="category-card__tint">
+                    <div class="category-card__image"></div>
+                </div>
+                <div class="category-card__text-wrapper">
+                    <h4 class="category-card__label l-padded-h-2 text-large text-body--significant text-heading--emphasized">
+                        Sports et bien-être
+                    </h4>
+                    <p class="category-card__desc l-block-2 l-padded-h-2 text-body text-heading--emphasized">
+                        Courses d&#39;obstacles, cours d&#39;initiation au yoga et matchs.
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+{% endblock %}

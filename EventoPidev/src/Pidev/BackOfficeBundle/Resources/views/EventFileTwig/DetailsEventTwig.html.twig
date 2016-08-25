@@ -1,0 +1,77 @@
+{# empty Twig template #}
+
+{% extends "PidevBackOfficeBundle::EventDetailsAdmin.html.twig" %} 
+
+
+{% block direction %} {{path('lister_evenement_b')}} {%endblock%}
+
+
+{% block eventName %} {{ event.titre}} {% endblock %}
+
+
+{% block tof %} {{ url }} {% endblock %}
+
+         
+
+ {% block details %}
+   
+                                    <tr>
+                                        <td>Lieu</td>
+                                        <td>{{ event.lieu }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date de debut</td>
+                                        <td>{{ event.dateDebut|date('d/m/Y') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>date de fin</td>
+                                        <td>{{ event.dateFin|date('d/m/Y') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Confidentialite</td>
+                                        <td><span class="label label-success">{{ event.confidentialite }}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>note</td>
+                                        <td>
+                                            {% for i in 1..10 %}
+                              {% if   loop.index  <=  note.somme %}
+                            <label for="overall-5">
+                                 <i class="fa fa-star text-yellow"></i>
+                              </label>
+                                        {% else %}
+                                       <label for="overall-5">
+                                             <i class="fa fa-star"></i>
+                                         </label>
+                                    {% endif %} 
+                                            
+                                           
+
+                                      {% endfor %}
+       
+                                                
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Description</td>
+                                        <td>{{ event.description }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prix</td>
+                                        <td> {{ event.prix }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Creer par: </td>
+                                        <td> {{ event.createur.nom }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Type</td>
+                                        <td> {{ event.type }}</td>
+                                    </tr>
+                                    {% endblock %}
+                                    
+                                    
+
+                                    
+                                    
+                                    

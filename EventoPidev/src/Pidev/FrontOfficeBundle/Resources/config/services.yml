@@ -1,0 +1,4 @@
+services:
+#    pidev_front_office.example:
+#        class: Pidev\FrontOfficeBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

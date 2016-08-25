@@ -1,0 +1,57 @@
+{% extends "PidevBackOfficeBundle::ReclamationAdmin.html.twig" %}
+{% block content %}
+    {% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <p>{{ message }}</p>
+    </div>
+{% endfor %}
+    <div class="col-sm-9 col-md-12">
+        <ul class="nav nav-tabs">
+            <li class="active"><button style="color: rgb(220, 103, 103);" type="submit" class="nav nav-pills nav-stacked" onclick='window.location.href="{{path("pidev_front_office_Reclamation_admin_list")}}"' data-toggle="tab" ><span class="fa fa-inbox"></span>&nbsp;
+                        Retourner a la liste</button></li>
+
+            
+        </ul>
+        <ul class="nav nav-pills nav-stacked" style="background: rgb(255, 255, 255);">
+            <li class="active"><a href="#"><i class="fa fa-inbox fa-fw mrs"></i>Nouvelle Reclamation</a></li>
+        </ul>
+        <div id="generalTabContent" class="tab-content">
+            <div id="tab-edit" class="tab-pane fade in active">
+                <form method="POST" class="form-horizontal">
+                   
+                        
+                        <h3 class="nav nav-pills nav-stacked"><b>Reclamation du client :</b></h3>
+                           <div class="controls">
+                                <p>{{contenu}}</p>
+                            </div>
+                       
+                            <br><br><br>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"><b>Message<b/></label>
+                        <div class="col-sm-9 controls">
+                            <div class="row">
+                                <div class="col-xs-11"> <textarea style="width: 100%;" name="contenuu"  rows="8"></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                     <div class="form-group">
+                       
+                        <div class="col-sm-12 controls">
+                            <button type="reset" class="btn btn-red" style="width: 47%; alignment-adjust: 'center';">Annuler</button>
+                            <button type="submit" class="btn btn-green" style="width: 47%; alignment-adjust: 'center'; ">Repondre</button>
+                        </div>
+                       
+                     </div>
+                    
+                    
+                </form>  
+            </div>
+        </div>
+            </div>
+        {% endblock %}    
+
